@@ -15,7 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
+    gradleVersion = '2.4.1'
+    distributionUrl = distributionUrl.replace("bin", "all")
 }
 
 jar {
