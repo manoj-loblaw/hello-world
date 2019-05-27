@@ -2,12 +2,12 @@ package hello.ca.manoj.hello.controller;
 
 import hello.ca.manoj.hello.domain.RoleRepository;
 import hello.ca.manoj.hello.domain.Roles;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class HelloController {
@@ -15,11 +15,17 @@ public class HelloController {
     @Resource
     RoleRepository roleRepository;
 
+    private String getRoles() {
+        StringBuilder result = new StringBuilder();
+        List<Roles> roles= roleRepository.findAll();
+        roles.forEach(role -> result.append(role.getRoleId() + "\n"));
+        return result.toString();
+    }
 
 
     @RequestMapping("/")
     public String index() {
-        return "Greetings!"+"\n"+roleRepository.findAll();
+        return "Greetings!"+"\r\n"+ getRoles();
     }
 
 
