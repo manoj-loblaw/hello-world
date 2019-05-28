@@ -13,3 +13,9 @@ spec:
       labels:
         app: {{ include "helm.name" . }}
         release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.container.port }}

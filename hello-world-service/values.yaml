@@ -1,1 +1,9 @@
 replicaCount: 3
+
+image:
+  repository: gcr.io/playground-drx/hello-world
+  tag: placeholder
+  pullPolicy: IfNotPresent
+
+container:
+  port: 8080
