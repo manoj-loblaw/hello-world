@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "helm.fullname" . }}-lb
+  name: {{ include "helm.name" . }}-lb
   labels:
-    name: {{ include "helm.fullname" . }}-lb
+    name: {{ include "helm.name" . }}-lb
 spec:
   ports:
     - port: {{ .Values.container.port }}
       targetPort: {{ .Values.container.port }}
       protocol: TCP
   selector:
-    app: {{ include "helm.fullname" . }}
+    app: {{ include "helm.name" . }}
   type: LoadBalancer
