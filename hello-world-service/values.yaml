@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: gcr.io/playground-drx/hello-world
-  tag: v1
+  tag: latest
   pullPolicy: IfNotPresent
 
 container:
