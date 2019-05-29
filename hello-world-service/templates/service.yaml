@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "helm.fullname" . }}-service
+  name: {{ include "helm.fullname" . }}-lb
   labels:
-    name: {{ include "helm.fullname" . }}-service
+    name: {{ include "helm.fullname" . }}-lb
 spec:
   ports:
     - port: {{ .Values.container.port }}
